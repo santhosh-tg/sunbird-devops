@@ -171,7 +171,7 @@ create_master_categories(){
     # Create the 5 master categories
     printf "\n\n"
     echo -e "\e[0;32m${bold}Creating master categories for board, medium, subject, gradeLevel, topic ${normal}"
-    curl -XPOST "http://${learningservice_ip}:8080/learning-service/framework/v3/category/master/create" -H 'Content-Type: application/json' -H "X-Channel-Id: ${organisation}" --data-raw '{"request": {"category": {"name": "board","code": "board"}}}'
+   echo curl -XPOST "http://${learningservice_ip}:8080/learning-service/framework/v3/category/master/create" -H 'Content-Type: application/json' -H "X-Channel-Id: ${organisation}" --data-raw '{"request": {"category": {"name": "board","code": "board"}}}'
     curl -XPOST "http://${learningservice_ip}:8080/learning-service/framework/v3/category/master/create" -H 'Content-Type: application/json' -H "X-Channel-Id: ${organisation}" --data-raw '{"request": {"category": {"name": "medium","code": "medium"}}}'
     curl -XPOST "http://${learningservice_ip}:8080/learning-service/framework/v3/category/master/create" -H 'Content-Type: application/json' -H "X-Channel-Id: ${organisation}" --data-raw '{"request": {"category": {"name": "subject","code": "subject"}}}'
     curl -XPOST "http://${learningservice_ip}:8080/learning-service/framework/v3/category/master/create" -H 'Content-Type: application/json' -H "X-Channel-Id: ${organisation}" --data-raw '{"request": {"category": {"name": "gradeLevel","code": "gradeLevel"}}}'
