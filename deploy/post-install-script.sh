@@ -14,7 +14,7 @@ cassandra=$9
 knowledge_platform_tag=${10}
 forms=https://sunbirdpublic.blob.core.windows.net/installation/forms.csv
 x_authenticated_token=""
-organisation=""
+organisation="0134249141196881920"
 creator=""
 reviewer=""
 orgadmin=""
@@ -673,22 +673,22 @@ echo -e "\e[0;90m${bold}cassandra-1: $cassandra ${normal}"
 echo -e "\e[0;90m${bold}knowledge-platform-tag: $knowledge_platform_tag ${normal}"
 printf "\n\n"
 
-cassandra_forms
-get_x_authenticated_token
-create_organisation
+#cassandra_forms
+#get_x_authenticated_token
+#create_organisation
 create_master_categories
-create_default_licenses
-create_default_channel_license
-create_other_categories
-system_settings
-create_users
-assign_roles
-create_framework
-create_framework_categories
-create_framework_terms
-publish_framework
-tenant_preference
-create_location
+#create_default_licenses
+#create_default_channel_license
+#create_other_categories
+#system_settings
+#create_users
+#assign_roles
+#create_framework
+#create_framework_categories
+#create_framework_terms
+#publish_framework
+#tenant_preference
+#create_location
 
 printf "\n\n"
 echo -e "\e[0;31m${bold}Please verify all the API calls are successful. If there are any failures, check the script / output and fix the issues${normal}"
