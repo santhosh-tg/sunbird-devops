@@ -95,7 +95,7 @@ create_users(){
   		   "userName": "creator",
   		   "phoneVerified": true
        }
-    }' | jq -r .result.userId)
+    }'
     echo "creator userid: ${creator}"
 
     reviewer=$(curl -sS -XPOST "${proto}://${domain_name}/api/user/v1/signup" -H 'Accept: application/json' -H 'Content-Type: application/json' \
