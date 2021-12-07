@@ -83,7 +83,7 @@ create_users(){
     # Create 3 users - Content Creator, Content Reviewer, Org Admin 
     printf "\n\n"
     echo -e "\e[0;32m${bold}Creating default users for Content Creator, Content Reviewer and Org Admin ${normal}"
-    echo creator=$(curl -sS -XPOST "${proto}://${domain_name}/api/user/v1/signup" -H 'Accept: application/json' -H 'Content-Type: application/json' \
+    echo curl -sS -XPOST "${proto}://${domain_name}/api/user/v1/signup" -H 'Accept: application/json' -H 'Content-Type: application/json' \
     -H "X-Authenticated-User-Token: ${x_authenticated_token}" \
     -H "Authorization: Bearer ${core_vault_sunbird_api_auth_token}" \
     -d '{
@@ -91,11 +91,11 @@ create_users(){
   		   "firstName": "creator",
   		   "lastName": "creator",
   		   "password": "Pass@123",
-  		   "phone": "9999911116",
+  		   "phone": "9999911115",
   		   "userName": "test",
   		   "phoneVerified": true
        }
-    }')
+    }'
     echo "creator userid: ${creator}"
 
     reviewer=$(curl -sS -XPOST "${proto}://${domain_name}/api/user/v1/signup" -H 'Accept: application/json' -H 'Content-Type: application/json' \
