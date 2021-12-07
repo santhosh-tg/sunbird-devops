@@ -83,7 +83,7 @@ create_users(){
     # Create 3 users - Content Creator, Content Reviewer, Org Admin 
     printf "\n\n"
     echo -e "\e[0;32m${bold}Creating default users for Content Creator, Content Reviewer and Org Admin ${normal}"
-    creator=$(curl -sS -XPOST "${proto}://${domain_name}/api/user/v1/signup" -H 'Accept: application/json' -H 'Content-Type: application/json' \
+    echo creator=$(curl -sS -XPOST "${proto}://${domain_name}/api/user/v1/signup" -H 'Accept: application/json' -H 'Content-Type: application/json' \
     -H "X-Authenticated-User-Token: ${x_authenticated_token}" \
     -H "Authorization: Bearer ${core_vault_sunbird_api_auth_token}" \
     -d '{
@@ -91,8 +91,8 @@ create_users(){
   		   "firstName": "creator",
   		   "lastName": "creator",
   		   "password": "Pass@123",
-  		   "phone": "9999911111",
-  		   "userName": "creator",
+  		   "phone": "9999911116",
+  		   "userName": "test",
   		   "phoneVerified": true
        }
     }')
@@ -676,12 +676,12 @@ printf "\n\n"
 #cassandra_forms
 #get_x_authenticated_token
 #create_organisation
-create_master_categories
+#create_master_categories
 #create_default_licenses
 #create_default_channel_license
 #create_other_categories
 #system_settings
-#create_users
+create_users
 #assign_roles
 #create_framework
 #create_framework_categories
