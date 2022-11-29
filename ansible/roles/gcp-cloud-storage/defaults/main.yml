@@ -39,9 +39,9 @@ dest_file_name: ""
 # {{ bucket_name }}{{ dest_folder_name }}
 # The above translates to "my-bucket/my-folder-path"
 # Example -
-# dest_folder_path: "/my-folder/json-files-folder"
+# gcs_path: "/my-folder/json-files-folder"
 # This variable can also be empty as shown below, which means we will upload directly at the root path of the bucket
-dest_folder_path: ""
+gcs_path: ""
 
 # The local folder path which has to be uploaded to gcloud storage
 # Example -
