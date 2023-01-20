@@ -87,6 +87,6 @@ spec:
         required:
         - spec
         type: object
-      served: true
-      storage: true
+    served: true
+    storage: true
   
