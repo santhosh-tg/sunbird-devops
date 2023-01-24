@@ -8,18 +8,6 @@ metadata:
   creationTimestamp: null
   name: alertmanagers.monitoring.coreos.com
 spec:
-  additionalPrinterColumns:
-  - JSONPath: .spec.version
-    description: The version of Alertmanager
-    name: Version
-    type: string
-  - JSONPath: .spec.replicas
-    description: The desired replicas number of Alertmanagers
-    name: Replicas
-    type: integer
-  - JSONPath: .metadata.creationTimestamp
-    name: Age
-    type: date
   group: monitoring.coreos.com
   names:
     kind: Alertmanager
@@ -28,7 +16,6 @@ spec:
     singular: alertmanager
   preserveUnknownFields: false
   scope: Namespaced
-  subresources: {}
   versions:
   - name: v1
     schema:
@@ -4496,6 +4483,18 @@ spec:
         required:
         - spec
         type: object
+    additionalPrinterColumns:
+      - jsonPath: .spec.version
+        description: The version of Alertmanager
+        name: Version
+        type: string
+      - jsonPath: .spec.replicas
+        description: The desired replicas number of Alertmanagers
+        name: Replicas
+        type: integer
+      - jsonPath: .metadata.creationTimestamp
+        name: Age
+        type: date  
     served: true
     storage: true
-  
+    subresources: {}
