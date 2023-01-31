@@ -1066,10 +1066,6 @@ prometheus-node-exporter:
 ##
 prometheusOperator:
   enabled: true
-
-  # If true prometheus operator will create and update its CRDs on startup
-  manageCrds: true
-
   tlsProxy:
     enabled: true
     image:
