@@ -1062,3 +1062,7 @@ inquiry_cassandra_connection: "{{ lp_cassandra_connection }}"
 inquiry_cassandra_keyspace_prefix: "{{ lp_cassandra_keyspace_prefix }}"
 inquiry_redis_host: "{{ sunbird_lp_redis_host }}"
 inquiry_search_service_base_url: "{{ sunbird_search_service_api_base_url }}/v3/search"
+
+cloudstorage_relative_path_prefix_content: "CONTENT_STORAGE_BASE_PATH"
+cloudstorage_relative_path_prefix_dial: "DIAL_STORAGE_BASE_PATH"
+cloudstorage_metadata_list: '["appIcon", "artifactUrl", "posterImage", "previewUrl", "thumbnail", "assetsMap", "certTemplate", "itemSetPreviewUrl", "grayScaleAppIcon", "sourceURL", "variants", "downloadUrl", "streamingUrl", "toc_url", "data", "question", "solutions", "editorState", "media", "pdfUrl", "transcripts"]'

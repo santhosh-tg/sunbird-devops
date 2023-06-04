@@ -549,3 +549,9 @@ sunbird_trampoline_desktop_keycloak_client_id: trampoline-desktop
 # DIAL-service schema
 dial_plugin_container_name: "sunbird-dial-{{env}}"
 dial_service_schema_base_path: "https://{{sunbird_public_storage_account_name}}.blob.core.windows.net/{{dial_plugin_container_name}}/schemas/local"
+
+# SB-31155 - Moving few vars from private repo template to here
+content_storage: "{{ sunbird_content_azure_storage_container }}"
+upstream_url: "{{ cloud_storage_url }}/{{ content_storage }}"
+plugin_upstream_url: "{{ upstream_url }}"
+kp_schema_base_path: "{{ upstream_url }}/schemas/local"
