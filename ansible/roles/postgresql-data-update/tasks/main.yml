@@ -1,8 +1,3 @@
-- name: install psycopg2
-  package:
-    name: python-psycopg2
-    state: present
- 
 # Configure PostgreSQL.
 - import_tasks: users.yml
 - import_tasks: databases.yml
