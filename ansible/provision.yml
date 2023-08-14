@@ -53,7 +53,7 @@
     - name: install python-psycopg2
       package:
         name: python-psycopg2
-            state: present
+        state: present
       when: ansible_distribution_version | float < 20
 
     - name: install python3-psycopg2
