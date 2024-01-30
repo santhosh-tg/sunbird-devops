@@ -127,11 +127,8 @@ corsproxyconfig: |-
     if ($request_method = GET ) { 
       proxy_pass  {{cloud_storage_url}}$uri;
     }
-  
-      
-    }
   }
-
+}  
 
 proxyconfig: |-
   {% if proto=='https' %}
