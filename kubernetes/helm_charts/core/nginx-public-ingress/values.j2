@@ -1,7 +1,7 @@
 #jinja2:lstrip_blocks: True
 
 namespace: {{ namespace }}
-csp: oci
+csp: {{cloud_service_provider}}
 merge_domain_status: {{ merge_domain_status | lower }}
 service:
   annotations: {{nginx_public_ingress_service_annotations | d('')  | to_json}}
@@ -66,13 +66,34 @@ repository: {{proxy_repository|default('proxy')}}
 image_tag: {{ image_tag }}
 
 corsproxyconfig: |-
+  {% if proto=='https' %}
   server {
+    if ($host = files.{{domain_name}}) {
+        return 301 https://$host$request_uri;
+    }
     listen 80 ;
     listen [::]:80 ;
     server_name files.{{domain_name}};
-
+    return 404;
   }
- 
+  {% endif %}
+  server {
+  {% if proto=='http' %}
+    listen                80;
+    listen    [::]:80;
+  {% else %}
+    listen [::]:443 ssl ipv6only=on; 
+    listen                443 ssl;
+    ssl_certificate       /etc/secrets/site.crt;
+    ssl_certificate_key   /etc/secrets/site.key;
+    ssl_protocols TLSv1.2 TLSv1.3;
+    ssl_ciphers "EECDH+ECDSA+AESGCM EECDH+aRSA+AESGCM EECDH+ECDSA+SHA384 EECDH+ECDSA+SHA256 EECDH+aRSA+SHA384 EECDH+aRSA+SHA256 EECDH+aRSA+RC4 EECDH EDH+aRSA HIGH !RC4 !aNULL !eNULL !LOW !3DES !MD5 !EXP !PSK !SRP !DSS";
+  {% endif  %}
+    server_name files.{{domain_name}};
+    client_max_body_size 0;
+    root /var/www/html;    
+    resolver {{ kube_dns_ip }} valid=30s;
+
     location / {
       # handle cors and allow all
       if ($request_method = OPTIONS ) {
@@ -106,8 +127,11 @@ corsproxyconfig: |-
     if ($request_method = GET ) { 
       proxy_pass  {{cloud_storage_url}}$uri;
     }
+  
+      
+    }
   }
-}  
+
 
 proxyconfig: |-
   {% if proto=='https' %}
