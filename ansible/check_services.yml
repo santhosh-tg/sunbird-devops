@@ -10,7 +10,7 @@
   tasks:
     - name: Check postgres service status
       service:
-        name: postgresql@12-main.service
+        name: postgresql@10-main.service
         state: started
       register: postgres_status
    # - name: Start postgres service if it's not running
