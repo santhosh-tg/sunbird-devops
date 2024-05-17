@@ -2665,7 +2665,7 @@ kong_apis:
 
 - name: qrCodeBatchProcessStatus
   uris: "{{ dialcode_service_prefix }}/v1/process/status"
-  upstream_url: "{{ knowledge_mw_service_url }}/v1/dialcode/process/status"
+  upstream_url: "{{ content_service_url }}/content/v3/process/status"
   strip_uri: true
   plugins:
   - name: jwt
@@ -3485,7 +3485,7 @@ kong_apis:
 
 - name: reserveDialcode
   uris: "{{ dialcode_service_prefix }}/v1/reserve"
-  upstream_url: "{{ knowledge_mw_service_url }}/v1/dialcode/reserve"
+  upstream_url: "{{ content_service_url }}/content/v3/dialcode/reserve"
   strip_uri: true
   plugins:
   - name: jwt
