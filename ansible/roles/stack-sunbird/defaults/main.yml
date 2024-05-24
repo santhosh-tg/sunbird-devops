@@ -1073,3 +1073,4 @@ pgssl: "false"
 
 #Knowlg Release-6.1.0
 dailcode_keyspace_name: "dialcodes"
+cloud_storage_dial_container_name: "dial"
