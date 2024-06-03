@@ -14,5 +14,5 @@
     dest: functional-tests-files/env_question_questionset_{{ file_version }}.json
 - name: Trigger Functional Test 
   shell:
-    cmd: newman run ft_question_questionset_{{ file_version }}.json -e env_question_questionset_{{ file_version }}.json --reporters cli,htmlextra,junit --reporter-htmlextra-export newman/report.html --reporter-junit-export newman/junit_report.xml ;
+    cmd: newman run ft_question_questionset_{{ file_version }}.json -e env_question_questionset_{{ file_version }}.json --reporters cli,htmlextra,junit --reporter-htmlextra-export newman/report.html --reporter-junit-export newman/junit_report.xml;
     chdir: functional-tests-files
